@@ -7,7 +7,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('menu');
 
   if (currentPage === 'menu') {
-    return <MenuPage />
+    return <MenuPage onStartGame={() => setCurrentPage('game')} />
   }
 }
 
