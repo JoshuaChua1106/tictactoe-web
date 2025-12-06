@@ -1,19 +1,19 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MenuPage from './pages/menu'
 import GamePage from './pages/game'
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('menu');
-
-  if (currentPage === 'menu') {
-    return <MenuPage onStartGame={() => setCurrentPage('game')} />
-  }
-
-  if (currentPage === 'game') {
-    return <GamePage/>
-  }
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MenuPage/>} />
+        <Route path="/game" element={<GamePage/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 
