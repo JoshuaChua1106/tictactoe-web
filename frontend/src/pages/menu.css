@@ -19,12 +19,17 @@ p {
 
 button {
   font-family: "Pacifico";
+  font-size: 1em;
+  font-weight: 500;
   background-color: #E7DED3;
   width: 10vw;
+  padding: 0.6em 1.2em;
+  border: 1px solid transparent;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #E7DED3;
-
+  opacity: 0.75;
+  border: 1px solid #000000;
 }
