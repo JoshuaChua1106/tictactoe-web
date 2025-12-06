@@ -7,29 +7,19 @@
   text-align: center;
 }
 
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #F7F3EE;
-}
-
-h1 {
+.menu-page h1 {
   font-family: "Pacifico";
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-p {
+.menu-page p {
   font-family: "Pacifico";
   font-size: 1.2rem;
   max-width: 40vw;
 }
 
-button {
+.menu-page button {
   font-family: "Pacifico";
   font-size: 1em;
   font-weight: 500;
@@ -41,7 +31,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.menu-page button:hover {
   opacity: 0.75;
   border: 1px solid #000000;
 }
