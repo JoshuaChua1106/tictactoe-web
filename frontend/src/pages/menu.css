@@ -29,9 +29,10 @@
   font-family: "Pacifico";
   font-size: 1em;
   font-weight: 500;
-  background-color: #E7DED3;
   width: 10vw;
   padding: 0.6em 1.2em;
+  margin-top: 5vh;
+  background-color: #E7DED3;
   border: 1px solid transparent;
   border-radius: 50px;
   cursor: pointer;
