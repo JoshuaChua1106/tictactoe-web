@@ -10,3 +10,21 @@
 h1 {
   font-family: "Pacifico";
 }
+
+p {
+  font-family: "Pacifico";
+  font-size: 1.2rem;
+  max-width: 40vw;
+}
+
+button {
+  font-family: "Pacifico";
+  background-color: #E7DED3;
+  width: 10vw;
+  border-radius: 50px;
+}
+
+button:hover {
+  background-color: #E7DED3;
+
+}
