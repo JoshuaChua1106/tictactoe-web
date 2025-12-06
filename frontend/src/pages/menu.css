@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+.menu-page {
+  text-align: center;    
+  margin-top: 20vh; 
+}
+
 .menu-page h1 {
   font-family: "Pacifico";
   font-size: 3.2em;
@@ -17,6 +22,7 @@
   font-family: "Pacifico";
   font-size: 1.2rem;
   max-width: 40vw;
+  margin: 10px auto;
 }
 
 .menu-page button {

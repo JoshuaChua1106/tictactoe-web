@@ -5,7 +5,7 @@ function GamePage() {
   return (
     <>
     <div>
-        <h1>Welcome to the Game Page</h1>
+        <h1>Welcomez to the Game Page</h1>
     </div>
     </>
   )
