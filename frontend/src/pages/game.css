@@ -13,12 +13,6 @@
     background-color: red;
 }
 
-.game-area {
-    display: flex;
-    background-color: blue;
-    width:100%;
-    gap: 5%;
-}
 
 .title {
     background-color: black;
@@ -31,13 +25,13 @@
     color: white;
 }
 
-.player-status {
+.game-area {
     display: flex;
-    flex-direction: column;
-
-    color: white;
-    width: 25%;
+    background-color: blue;
+    width: 100%;
+    gap: 5%;
 }
+
 
 .game-board {
     display: grid;
@@ -45,7 +39,7 @@
     grid-template-rows: repeat(3, 1fr);
 
     gap: 10px;
-    width: 50%;
+    width: 40%;
     color: white;
 
 
@@ -65,5 +59,34 @@
     cursor: pointer;
 }
 
+.player-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+    width: 25%;
+
+    background-color: brown;
+    
+}
+
+.circle {
+    background-image: url('/public/assets/game/tictactoe-pieces/circle.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    aspect-ratio: 1;
+    width: 15vw;
+    background-color: brown;
+}
+
+.cross {
+    background-image: url('/public/assets/game/tictactoe-pieces/cross.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    aspect-ratio: 1;
+    width: 15vw;
+
+}
 
 

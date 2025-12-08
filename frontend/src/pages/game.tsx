@@ -25,7 +25,7 @@ function GamePage() {
             <div className="player-status">
                 <h1>Player</h1>
                 <p>You are:</p>
-                <p>SYMBOL</p>
+                <div className="circle"></div>
 
             </div>
 
@@ -46,7 +46,7 @@ function GamePage() {
             <div className="player-status">
                 <h1>Opponent</h1>
                 <p>The opponent is:</p>
-                <p>SYMBOL</p>
+                <div className="cross"></div>
 
             </div>
 
