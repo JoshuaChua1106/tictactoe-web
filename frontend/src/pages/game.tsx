@@ -12,10 +12,10 @@ function GamePage() {
             </div> 
 
             {/* Turn Indicator */}
-            <div className="turn-indicator">
-                <p>Arrow left</p>
+            <div className="turn-indicator-panel">
+                <div className = "turn-triangle-left"></div>
                 <h1>You're Turn/Awaiting Opponent</h1>
-                <p>Arrow right</p>
+                <div className = "turn-triangle-right"></div>
 
             </div>
         </div>
