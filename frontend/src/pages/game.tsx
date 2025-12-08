@@ -14,7 +14,10 @@ function GamePage() {
 
             {/* Turn Indicator */}
             <div className="turn-indicator">
+                <p>Arrow left</p>
                 <h1>You're Turn/Awaiting Opponent</h1>
+                <p>Arrow right</p>
+
             </div>
         </div>
 
@@ -23,6 +26,8 @@ function GamePage() {
             <div className="player-status">
                 <h1>Player</h1>
                 <p>You are:</p>
+                <p>SYMBOL</p>
+
             </div>
 
             {/* Game field */}
@@ -42,6 +47,8 @@ function GamePage() {
             <div className="player-status">
                 <h1>Opponent</h1>
                 <p>The opponent is:</p>
+                <p>SYMBOL</p>
+
             </div>
 
         </div>

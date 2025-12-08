@@ -26,6 +26,7 @@
 }
 
 .turn-indicator {
+    display: flex;
     background-color: black;
     color: white;
 }
