@@ -1,12 +1,53 @@
 import { useState } from 'react'
+import './game.css'
 
 function GamePage() {
 
   return (
     <>
-    <div>
-        <h1>Welcomez to the Game Page</h1>
+    <div className="game-layout">
+        <div className="game-header">
+            {/* Title Div */}
+            <div className="title">
+                <h1>Tic Tac Toe</h1>
+            </div> 
+
+            {/* Turn Indicator */}
+            <div className="turn-indicator">
+                <h1>You're Turn/Awaiting Opponent</h1>
+            </div>
+        </div>
+
+        <div className="game-area">
+            {/* Enemy Screen Div */}
+            <div className="player-status">
+                <h1>Player</h1>
+                <p>You are:</p>
+            </div>
+
+            {/* Game field */}
+            <div className="game-board">
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+                <h1>Grid</h1>
+            </div>
+            
+            {/* Enemy Screen Div */}
+            <div className="player-status">
+                <h1>Opponent</h1>
+                <p>The opponent is:</p>
+            </div>
+
+        </div>
     </div>
+
+
     </>
   )
 }

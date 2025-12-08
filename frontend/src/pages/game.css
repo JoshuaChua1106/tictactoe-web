@@ -1,0 +1,52 @@
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.game-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: red;
+}
+
+.game-area {
+    display: flex;
+    background-color: blue;
+    width:100%;
+    gap: 5%;
+}
+
+.title {
+    background-color: black;
+    color: white;
+}
+
+.turn-indicator {
+    background-color: black;
+    color: white;
+}
+
+.player-status {
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+    width: 25%;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    width: 50%;
+    color: white;
+}
+
+
+
+
