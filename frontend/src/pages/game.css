@@ -44,10 +44,26 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 
+    gap: 10px;
     width: 50%;
     color: white;
+
+
+    margin: 0 auto;
+
 }
 
+.card-square {
+    background-image: url('/public/assets/game/board/board-square.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    aspect-ratio: 1;
+}
+
+.card-square:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
 
 
 

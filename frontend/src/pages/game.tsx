@@ -32,15 +32,15 @@ function GamePage() {
 
             {/* Game field */}
             <div className="game-board">
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
-                <h1>Grid</h1>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
+                <div className="card-square"></div>
             </div>
             
             {/* Enemy Screen Div */}
