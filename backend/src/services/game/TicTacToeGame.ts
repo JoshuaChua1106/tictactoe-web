@@ -110,7 +110,4 @@ export class TicTacToeGame {
         return this.board;
     }
 
-
-
-
 }
