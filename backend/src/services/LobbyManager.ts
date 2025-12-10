@@ -18,6 +18,8 @@ export class LobbyManager {
 
     // Methods
     public handleNewPlayer(socket: Socket) {
+        console.log(`New Player handled: ${socket.id}`);
+
         socket.on('join_queue', () => {
         this.addToQueue(socket);
         });
@@ -38,6 +40,8 @@ export class LobbyManager {
     private addToQueue(socket: Socket) {
         this.waitingList.push(socket);
         console.log(`Player ${socket.id} joined queue`);
+        console.log(`Players in Queue [${this.waitingList.map(s => s.id).join(', ')}]`);
+
 
         this.checkForMatch(); // Try to create a game
     }
