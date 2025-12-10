@@ -69,7 +69,7 @@ export class TicTacToeGame {
         this.currentTurn = this.currentTurn === 'X' ? 'O' : 'X';
     }
     
-    private makeMove(x_value: number, y_value: number, playerSymbol: 'X' | 'O') : boolean {
+    public makeMove(x_value: number, y_value: number, playerSymbol: 'X' | 'O') : boolean {
         // Check if Board is valid
         if (!this.board[0] || !this.board[1] || !this.board[2]) return false;
 
@@ -106,8 +106,18 @@ export class TicTacToeGame {
         return true;
     }
 
+
+    // =========={ GETTERS }==========
     public getPublicState() : Board {
         return this.board;
+    }
+
+    public getCurrentTurn(): 'X' | 'O' {
+        return this.currentTurn;
+    }
+
+    public getGameOver(): 'draw' | 'O' | 'X' | null {
+        return this.gameOver;
     }
 
 }
