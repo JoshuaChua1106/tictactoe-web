@@ -1,13 +1,12 @@
-module.exports = {
-  // Use ts-jest to process TypeScript files
-  preset: 'ts-jest',
-  
-  // The test environment
+export default {
+  preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
-  
-  // Where to look for test files
+  extensionsToTreatAsEsm: ['.ts'],
+  globals: {
+    'ts-jest': {
+      useESM: true
+    }
+  },
   testMatch: ["**/tests/**/*.test.ts"],
-  
-  // Root directory of your source code
-  rootDir: "./",
+  rootDir: "./"
 };
