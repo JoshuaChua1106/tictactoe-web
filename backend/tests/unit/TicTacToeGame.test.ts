@@ -1,4 +1,5 @@
 import { TicTacToeGame } from '../../src/services/game/TicTacToeGame';
+import { describe, test, expect } from 'vitest';
 
 describe('TicTacToeGame', () => {
     test('should initialize with empty board and X starts first', () => {
