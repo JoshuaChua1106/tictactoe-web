@@ -1,5 +1,5 @@
 import { GameManager } from "./game/GameManager.js"
-import type { Socket } from "socket.io";
+import { Socket } from "socket.io";
 
 
 export class LobbyManager {
@@ -75,6 +75,24 @@ export class LobbyManager {
         const gameManager = new GameManager(gameId, player1, player2);
 
         this.gameList.set(gameId, gameManager);
+        setTimeout(() => {
+            player1.emit('match_found', {
+            gameId,
+            yourSymbol: 'X',
+            opponent: player2.id,
+            players: [player1.id, player2.id]
+            });
+
+        player2.emit('match_found', {
+            gameId,
+            yourSymbol: 'O',
+            opponent: player1.id,
+            players: [player1.id, player2.id]
+            });
+
+
+        }, 100);
+        
 
         console.log(`Game ${gameId} created with players ${player1.id} and ${player2.id}`);
     }
