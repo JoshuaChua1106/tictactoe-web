@@ -1,6 +1,21 @@
+import { socket } from '../socket';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import './game.css'
 
 function GamePage() {
+
+    const location = useLocation();
+    const { gameId, yourSymbol, opponent } = location.state || {};
+
+    const [board, setBoard] = useState(Array(3).fill(null).map(() => Array(3).fill(null)));
+    const [currentTurn, setCurrentTurn] = useState('X');
+    const [gameOver, setGameOver] = useState(null);
+
+    useEffect(() => {
+        console.log(gameId, yourSymbol, opponent);
+    });
 
   return (
     <>
@@ -25,7 +40,8 @@ function GamePage() {
             <div className="player-status">
                 <h1>Player</h1>
                 <p>You are:</p>
-                <div className="circle"></div>
+                 <div className={yourSymbol === 'O' ? 'circle' : 'cross'}>
+                </div>
 
             </div>
 
@@ -46,7 +62,8 @@ function GamePage() {
             <div className="player-status">
                 <h1>Opponent</h1>
                 <p>The opponent is:</p>
-                <div className="cross"></div>
+                <div className={yourSymbol === 'O' ? 'cross' : 'circle'}>
+                </div>
 
             </div>
 
