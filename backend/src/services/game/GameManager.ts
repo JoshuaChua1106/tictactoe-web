@@ -17,6 +17,7 @@ export class GameManager {
     private player1Symbol = 'X';
     private player2Symbol = 'O';
 
+    private playersReady = new Set<string>();
 
     // Constructor
 
@@ -39,6 +40,11 @@ export class GameManager {
     // Methods
     private setupEventListeners() {
         // ===== { PLAYER 1 SOCKETS} =====
+        this.player1Socket.on('player_ready', () => {
+            this.handlePlayerReady(this.player1Socket.id);
+        });
+
+
         this.player1Socket.on('make_move', (data) => {
             const { x, y } = data;
             const symbol = this.getPlayerSymbol(this.player1Socket.id);
@@ -46,6 +52,10 @@ export class GameManager {
         });
 
         // ===== { PLAYER 2 SOCKETS} =====
+        this.player2Socket.on('player_ready', () => {
+            this.handlePlayerReady(this.player2Socket.id);
+        });
+
         this.player2Socket.on('make_move', (data) => {
             const { x, y } = data;
             const symbol = this.getPlayerSymbol(this.player2Socket.id);
@@ -60,6 +70,33 @@ export class GameManager {
         if (socketId === this.player2Socket.id) return 'O';
         throw new Error('Invalid player');
 
+    }
+
+    // ===== {SOCKET EMITS} =====
+    public startGame(): void {
+        this.broadcastGameState();
+
+    } 
+
+
+    // ===== { HELPER FUNCTIONS } =====
+    private broadcastGameState() {
+        const gameState = {
+            board: this.game.getPublicState(),
+            currentTurn: this.game.getCurrentTurn(),
+            gameOver: this.game.getGameOver(),
+        };
+
+        this.player1Socket.emit('game_update', gameState);
+        this.player2Socket.emit('game_update', gameState);
+    }
+
+    private handlePlayerReady(playerId: string): void {
+        this.playersReady.add(playerId);
+
+        if(this.playersReady.size === 2) {
+            this.startGame();
+        }
     }
 
 }

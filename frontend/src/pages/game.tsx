@@ -12,10 +12,22 @@ function GamePage() {
     const [board, setBoard] = useState(Array(3).fill(null).map(() => Array(3).fill(null)));
     const [currentTurn, setCurrentTurn] = useState('X');
     const [gameOver, setGameOver] = useState(null);
+    const [gameInitialized, setGameInitialized] = useState(false);
 
     useEffect(() => {
-        console.log(gameId, yourSymbol, opponent);
-    });
+        socket.emit('player_ready');
+   }, []);
+
+   useEffect(() => {
+        socket.on('game_update', (data) => {
+            setBoard(data.board);
+            setCurrentTurn(data.currentTurn);
+            setGameOver(data.gameOver);
+            setGameInitialized(true);
+        })
+
+        return () => {socket.off('game_update');} 
+    }, []);
 
   return (
     <>
