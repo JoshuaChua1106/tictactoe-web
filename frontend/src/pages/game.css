@@ -23,23 +23,39 @@
     align-items: center;
 }
 
-.turn-triangle-left {
+.turn-triangle-left.active {
       width: 50px;
       height: 50px;
       background: url("/assets/game/turn-indicator/turn-indicator-active.png");
       background-size: contain;
       background-repeat: no-repeat;
+}
+
+.turn-triangle-left.inactive {
+      width: 50px;
+      height: 50px;
+      background: url("/assets/game/turn-indicator/turn-indicator-inactive.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      rotate: 180deg; 
 
 }
 
-.turn-triangle-right {
+.turn-triangle-right.active {
       width: 50px;
       height: 50px;
       background: url("/assets/game/turn-indicator/turn-indicator-active.png");
       background-size: contain;
       background-repeat: no-repeat;
       rotate: 180deg;
+}
 
+.turn-triangle-right.inactive {
+      width: 50px;
+      height: 50px;
+      background: url("/assets/game/turn-indicator/turn-indicator-inactive.png");
+      background-size: contain;
+      background-repeat: no-repeat;
 }
 
 .game-area {

@@ -49,9 +49,9 @@ function GamePage() {
 
             {/* Turn Indicator */}
             <div className="turn-indicator-panel">
-                <div className = "turn-triangle-left"></div>
+                <div className={`turn-triangle-left ${currentTurn === yourSymbol ? 'active' : 'inactive'}`}></div>
                 <h1>You're Turn/Awaiting Opponent</h1>
-                <div className = "turn-triangle-right"></div>
+                <div className={`turn-triangle-right ${currentTurn !== yourSymbol ? 'active' : 'inactive'}`}></div>
 
             </div>
         </div>
