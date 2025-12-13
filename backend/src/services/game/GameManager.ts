@@ -46,9 +46,13 @@ export class GameManager {
 
 
         this.player1Socket.on('make_move', (data) => {
+
             const { x, y } = data;
             const symbol = this.getPlayerSymbol(this.player1Socket.id);
+            console.log(`emit obtained: Player 1 ${symbol} `);
             this.game.makeMove(x, y, symbol);
+            this.broadcastGameState();
+
         });
 
         // ===== { PLAYER 2 SOCKETS} =====
@@ -57,9 +61,14 @@ export class GameManager {
         });
 
         this.player2Socket.on('make_move', (data) => {
+
+
             const { x, y } = data;
             const symbol = this.getPlayerSymbol(this.player2Socket.id);
+            console.log(`emit obtained: Player 2 ${symbol} `);
+
             this.game.makeMove(x, y, symbol);
+            this.broadcastGameState();
         });
     }
 
@@ -75,6 +84,7 @@ export class GameManager {
     // ===== {SOCKET EMITS} =====
     public startGame(): void {
         this.broadcastGameState();
+        console.log("Game started");
 
     } 
 
@@ -89,6 +99,8 @@ export class GameManager {
 
         this.player1Socket.emit('game_update', gameState);
         this.player2Socket.emit('game_update', gameState);
+
+        console.log(gameState);
     }
 
     private handlePlayerReady(playerId: string): void {
