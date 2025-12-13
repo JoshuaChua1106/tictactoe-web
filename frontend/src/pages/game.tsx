@@ -59,15 +59,42 @@ function GamePage() {
 
             {/* Game field */}
             <div className="game-board">
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
-                <div className="card-square"></div>
+                <div className="card-square">
+                    {board[0][0] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">                        
+                    {board[0][1] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[0][2] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[1][0] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[1][1] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[1][2] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[2][0] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[2][1] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
+                <div className="card-square">
+                    {board[2][2] && (
+                    <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
+                </div>
             </div>
             
             {/* Enemy Screen Div */}
