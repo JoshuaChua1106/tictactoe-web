@@ -14,11 +14,20 @@ function GamePage() {
     const [gameOver, setGameOver] = useState(null);
     const [gameInitialized, setGameInitialized] = useState(false);
 
+
+    const makeMove = (x : number, y : number) => {
+        if (board[x][y] !== null || gameOver !== null) return;
+
+        console.log(`Clicked square ${x}, ${y}`);
+        socket.emit('make_move', { x, y });
+
+    }
+
     useEffect(() => {
         socket.emit('player_ready');
    }, []);
 
-   useEffect(() => {
+    useEffect(() => {
         socket.on('game_update', (data) => {
             setBoard(data.board);
             setCurrentTurn(data.currentTurn);
@@ -59,39 +68,39 @@ function GamePage() {
 
             {/* Game field */}
             <div className="game-board">
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(0, 0)}>
                     {board[0][0] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">                        
+                <div className="card-square" onClick={() => makeMove(0, 1)}>                        
                     {board[0][1] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(0, 2)}>
                     {board[0][2] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(1, 0)}>
                     {board[1][0] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(1, 1)}>
                     {board[1][1] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(1, 2)}>
                     {board[1][2] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(2, 0)}>
                     {board[2][0] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(2, 1)}>
                     {board[2][1] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
-                <div className="card-square">
+                <div className="card-square" onClick={() => makeMove(2, 2)}>
                     {board[2][2] && (
                     <div className={board[0][0] === 'X' ? 'cross' : 'circle'}/>)}
                 </div>
