@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin: 0 auto;
+    max-width: 1000px;
 }
 
 .game-header {
@@ -144,6 +146,8 @@
     background-repeat: no-repeat;
     aspect-ratio: 1;
     width: 15vw;
+    max-width: 175px;
+
 }
 
 .circle.win {
@@ -157,6 +161,7 @@
     background-repeat: no-repeat;
     aspect-ratio: 1;
     width: 15vw;
+    max-width: 175px;
 }
 
 .cross.win {
