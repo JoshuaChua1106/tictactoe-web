@@ -1,11 +1,12 @@
 import { socket } from '../socket';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 import './game.css'
 
 function GamePage() {
-
+    const navigate = useNavigate();
     const location = useLocation();
     const { gameId, yourSymbol, opponent } = location.state || {};
 
@@ -16,6 +17,12 @@ function GamePage() {
     const [winningLine, setWinningLine] = useState<[number, number][] | null>(null);
 
     const opponentSymbol = yourSymbol === 'O' ? 'X' : 'O';
+
+    const handlePlayAgain = () => {
+        socket.emit('join_queue');
+        console.log('Joining matchmaking queue...');
+        navigate("/lobby");
+    };
 
     const makeMove = (x : number, y : number) => {
         if (board[x][y] !== null || gameOver !== null) return;
@@ -127,8 +134,8 @@ function GamePage() {
 
         {gameOver && (
         <div className='game-end-section'>
-            <div className='menu-button'>Play again</div>
-            <div className='menu-button'>Main Menu</div>
+            <div className='menu-button' onClick={handlePlayAgain}>Play Again</div>
+            <div className='menu-button' onClick={() => navigate("/")}>Main Menu</div>
         </div>
         )}
 
