@@ -1,4 +1,4 @@
-import type { Socket } from "socket.io";
+import { Socket } from "socket.io";
 import { TicTacToeGame } from "./TicTacToeGame.js";
 
 export class GameManager {
@@ -52,8 +52,23 @@ export class GameManager {
 
 
         this.player1Socket.on('make_move', (data) => {
+            
+            if (!data || typeof data !== 'object') {
+                this.player1Socket.emit('error', {message: "Invalid data format"});
+            }
 
             const { x, y } = data;
+
+            if (typeof x !== 'number' || typeof y !== 'number') {
+                this.player1Socket.emit('error', {message: "Coordinates must be numbers"});
+            }
+
+            if (x < 0 || x > 2 || y < 0 || y > 2) {
+                this.player1Socket.emit('error', {message: "Coordinates must be between 0-2"});
+                return;
+            }
+
+
             const symbol = this.getPlayerSymbol(this.player1Socket.id);
             this.game.makeMove(x, y, symbol);
             this.broadcastGameState();
@@ -66,7 +81,20 @@ export class GameManager {
         });
 
         this.player2Socket.on('make_move', (data) => {
+            if (!data || typeof data !== 'object') {
+                this.player2Socket.emit('error', {message: "Invalid data format"});
+            }
+
             const { x, y } = data;
+
+            if (typeof x !== 'number' || typeof y !== 'number') {
+                this.player2Socket.emit('error', {message: "Coordinates must be numbers"});
+            }
+
+            if (x < 0 || x > 2 || y < 0 || y > 2) {
+                this.player2Socket.emit('error', {message: "Coordinates must be between 0-2"});
+                return;
+            }
             const symbol = this.getPlayerSymbol(this.player2Socket.id);
 
             this.game.makeMove(x, y, symbol);

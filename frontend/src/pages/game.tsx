@@ -71,9 +71,13 @@ function GamePage() {
             setWinningLine(data.winningLine);
 
             setGameInitialized(true);
-        })
+        });
 
-        return () => {socket.off('game_update');} 
+        socket.on('error', (data) => {
+            console.log(`Error: ${data.message}`);
+        });
+
+        return () => {socket.off('game_update'); socket.off('error');} 
     }, []);
 
   return (
