@@ -124,6 +124,14 @@ function GamePage() {
             </div>
 
         </div>
+
+        {gameOver && (
+        <div className='game-end-section'>
+            <div className='menu-button'>Play again</div>
+            <div className='menu-button'>Main Menu</div>
+        </div>
+        )}
+
     </div>
 
 
