@@ -1,9 +1,21 @@
-import { useNavigate } from 'react-router-dom'
+import { data, useNavigate } from 'react-router-dom'
 import { socket } from '../socket';
 import { useEffect } from 'react';
 
 function LobbyPage() {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        socket.emit('verify_lobby_status');
+
+        socket.on('lobby_status', (data) =>{
+            if (!data.inQueue){
+                navigate('/');
+            }
+        });
+
+
+    },[]);
 
     useEffect(() => {
         socket.on('match_found', (data) => {

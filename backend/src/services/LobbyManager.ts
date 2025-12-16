@@ -20,6 +20,12 @@ export class LobbyManager {
     public handleNewPlayer(socket: Socket) {
         console.log(`New Player handled: ${socket.id}`);
 
+        socket.on('verify_lobby_status', () => {
+            const inQueue = this.waitingList.some(s => s.id === socket.id);
+            socket.emit('lobby_status', { inQueue });
+        });
+
+
         socket.on('join_queue', () => {
         this.addToQueue(socket);
         });
