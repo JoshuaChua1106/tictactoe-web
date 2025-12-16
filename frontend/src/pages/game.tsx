@@ -51,6 +51,15 @@ function GamePage() {
     }
 
     useEffect(() => {
+        if (!gameId || !yourSymbol) {
+            navigate('/');
+            return;
+        }
+
+    }, [gameId, yourSymbol, navigate]);
+
+
+    useEffect(() => {
         socket.emit('player_ready');
    }, []);
 
