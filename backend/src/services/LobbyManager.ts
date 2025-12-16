@@ -75,7 +75,13 @@ export class LobbyManager {
     private handleDisconnect(socket: Socket) {
         this.removeFromQueue(socket);
 
-        // Logic to remove player from a game
+        this.gameList.forEach((game, gameId) => {
+            const shouldDelete = game.removePlayer(socket.id);
+            if (shouldDelete) {
+                this.gameList.delete(gameId);
+            }
+
+        });
 
         console.log(`Player ${socket.id} disconnected`);
     }
