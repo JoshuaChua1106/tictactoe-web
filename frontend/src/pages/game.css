@@ -88,7 +88,10 @@
     background-size: contain;
     background-repeat: no-repeat;
     aspect-ratio: 1;
+}
 
+.card-square.win {
+    box-shadow: 0 0 0 3px red;
 }
 
 .card-square:hover {
@@ -103,10 +106,7 @@
     width: 80%;
     height: 80%;
     background-size: contain;
-    background-image: url('/assets/game/tictactoe-pieces/circle.png');
-
-    
-    
+    background-image: url('/assets/game/tictactoe-pieces/circle.png');    
 }
 
 .card-square .cross {
