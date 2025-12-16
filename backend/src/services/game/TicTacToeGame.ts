@@ -15,7 +15,7 @@ export class TicTacToeGame {
 
     private gameOver: 'draw' | 'O' | 'X' | null;
 
-
+    private winningLine: number[][] | null;
 
 
     // Constructor
@@ -35,6 +35,8 @@ export class TicTacToeGame {
 
         this.gameOver = null;
 
+        this.winningLine = null;
+
     }
 
 
@@ -43,19 +45,27 @@ export class TicTacToeGame {
     private checkWin(symbol: 'X' | 'O' | null) : boolean {
         if (!this.board[0] || !this.board[1] || !this.board[2]) return false;
 
-        const lines = [
-            [this.board[0][0], this.board[0][1], this.board[0][2]], // Row 1
-            [this.board[1][0], this.board[1][1], this.board[1][2]], // Row 2
-            [this.board[2][0], this.board[2][1], this.board[2][2]], // Row 3
-            [this.board[0][0], this.board[1][0], this.board[2][0]], // Column 1
-            [this.board[0][1], this.board[1][1], this.board[2][1]], // Column 2
-            [this.board[0][2], this.board[1][2], this.board[2][2]], // Column 3
-            [this.board[0][0], this.board[1][1], this.board[2][2]], // Diagonal (top-left to bottom-right)
-            [this.board[2][0], this.board[1][1], this.board[0][2]], // Diagnoal (bottom-left to top-right)
-        ]
+        const winPatterns: [number, number][][] = [
+                [[0,0], [0,1], [0,2]], // Row 1
+                [[1,0], [1,1], [1,2]], // Row 2
+                [[2,0], [2,1], [2,2]], // Row 3
+                [[0,0], [1,0], [2,0]], // Column 1
+                [[0,1], [1,1], [2,1]], // Column 2
+                [[0,2], [1,2], [2,2]], // Column 3
+                [[0,0], [1,1], [2,2]], // Diagonal 1
+                [[2,0], [1,1], [0,2]]  // Diagonal 2
+            ];
         
-        
-        return lines.some(line => line.every(cell => cell === symbol));
+        for (const pattern of winPatterns){
+            const line = pattern.map(([x, y]: [number, number]) => this.board[x]?.[y]);
+            if (line.every(cell => cell === symbol)) {
+                this.winningLine = pattern;
+                return true
+            }
+        }
+
+        return false;
+
     }
 
     private checkBoardFull() : boolean {
@@ -118,6 +128,10 @@ export class TicTacToeGame {
 
     public getGameOver(): 'draw' | 'O' | 'X' | null {
         return this.gameOver;
+    }
+
+    public getWinningLine(): number[][] | null {
+        return this.winningLine;
     }
 
 }

@@ -13,6 +13,7 @@ function GamePage() {
     const [currentTurn, setCurrentTurn] = useState('X');
     const [gameOver, setGameOver] = useState(null);
     const [gameInitialized, setGameInitialized] = useState(false);
+    const [winningLine, setWinningLine] = useState<[number, number][] | null>(null);
 
 
     const makeMove = (x : number, y : number) => {
@@ -32,6 +33,8 @@ function GamePage() {
             setBoard(data.board);
             setCurrentTurn(data.currentTurn);
             setGameOver(data.gameOver);
+            setWinningLine(data.winningLine);
+
             setGameInitialized(true);
         })
 

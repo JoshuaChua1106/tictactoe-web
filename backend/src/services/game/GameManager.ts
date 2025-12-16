@@ -95,6 +95,7 @@ export class GameManager {
             board: this.game.getPublicState(),
             currentTurn: this.game.getCurrentTurn(),
             gameOver: this.game.getGameOver(),
+            winningLine: this.game.getWinningLine()
         };
 
         this.player1Socket.emit('game_update', gameState);
