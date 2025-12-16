@@ -20,6 +20,9 @@ export class GameManager {
     private playerList = new Set<string>();
     private playersReady = new Set<string>();
 
+    // Rate limiting
+    private lastMoveTime = new Map<string, number>();
+
 
     // Constructor
 
@@ -81,6 +84,12 @@ export class GameManager {
         });
 
         this.player2Socket.on('make_move', (data) => {
+            if (this.isRateLimited(this.player1Socket.id)) {
+                this.player1Socket.emit('error', { message: 'Too fast! Slow down.' });
+                return;
+            }
+
+
             if (!data || typeof data !== 'object') {
                 this.player2Socket.emit('error', {message: "Invalid data format"});
             }
@@ -153,6 +162,18 @@ export class GameManager {
         if(this.playersReady.size === 2) {
             this.startGame();
         }
+    }
+
+    private isRateLimited(playerId: string): boolean {
+        const now = Date.now();
+        const lastMove = this.lastMoveTime.get(playerId) || 0;
+
+        if (now - lastMove < 500) {
+            return true;
+        }
+
+        this. lastMoveTime.set(playerId, now);
+        return false;
     }
 
 
