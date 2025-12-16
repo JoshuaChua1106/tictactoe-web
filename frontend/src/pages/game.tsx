@@ -18,16 +18,30 @@ function GamePage() {
 
     const opponentSymbol = yourSymbol === 'O' ? 'X' : 'O';
 
+    const cleanUp = () => {
+        setBoard(Array(3).fill(null).map(() => Array(3).fill(null)));
+        setGameOver(null);
+        setWinningLine(null);
+        setCurrentTurn('X');
+
+        socket.emit('leave_game', { gameId });
+    }
+
     const handlePlayAgain = () => {
+        cleanUp();
         socket.emit('join_queue');
-        console.log('Joining matchmaking queue...');
         navigate("/lobby");
     };
+
+    const handleMainMenu = () => {
+        cleanUp();
+        navigate("/");
+    }
+
 
     const makeMove = (x : number, y : number) => {
         if (board[x][y] !== null || gameOver !== null) return;
 
-        console.log(`Clicked square ${x}, ${y}`);
         socket.emit('make_move', { x, y });
 
     }
@@ -135,7 +149,7 @@ function GamePage() {
         {gameOver && (
         <div className='game-end-section'>
             <div className='menu-button' onClick={handlePlayAgain}>Play Again</div>
-            <div className='menu-button' onClick={() => navigate("/")}>Main Menu</div>
+            <div className='menu-button' onClick={handleMainMenu}>Main Menu</div>
         </div>
         )}
 

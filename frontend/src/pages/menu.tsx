@@ -7,7 +7,6 @@ function MenuPage() {
     const navigate = useNavigate();
     const handleStartGame = () => {
           socket.emit('join_queue');
-          console.log('Joining matchmaking queue...');
           navigate("/lobby");
       };
 

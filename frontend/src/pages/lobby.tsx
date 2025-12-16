@@ -7,7 +7,6 @@ function LobbyPage() {
 
     useEffect(() => {
         socket.on('match_found', (data) => {
-            console.log('Match Found!', data);
             navigate('/game', {
                 state: {
                     gameId: data.gameId,

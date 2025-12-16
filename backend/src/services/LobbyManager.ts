@@ -32,6 +32,21 @@ export class LobbyManager {
         this.handleDisconnect(socket);
         });
 
+        socket.on('leave_game', (data) => {
+            const { gameId } = data;
+            const playerId = socket.id;
+
+            const game = this.gameList.get(gameId);
+            if (game) {
+                const shouldDelete = game.removePlayer(playerId);
+                if (shouldDelete) {
+                    this.gameList.delete(gameId);
+                } 
+            }
+
+
+        });
+
     }
 
 

@@ -17,7 +17,9 @@ export class GameManager {
     private player1Symbol = 'X';
     private player2Symbol = 'O';
 
+    private playerList = new Set<string>();
     private playersReady = new Set<string>();
+
 
     // Constructor
 
@@ -30,6 +32,10 @@ export class GameManager {
         this.player1id = this.player1Socket.id;
         this.player2id = this.player2Socket.id;
 
+        this.playerList.add(this.player1id);
+        this.playerList.add(this.player2id);
+
+
         this.game = new TicTacToeGame(this.gameId, this.player1id, this.player2id);
 
         this.setupEventListeners();
@@ -41,7 +47,7 @@ export class GameManager {
     private setupEventListeners() {
         // ===== { PLAYER 1 SOCKETS} =====
         this.player1Socket.on('player_ready', () => {
-            this.handlePlayerReady(this.player1Socket.id);
+            this.handlePlayersReady(this.player1Socket.id);
         });
 
 
@@ -49,7 +55,6 @@ export class GameManager {
 
             const { x, y } = data;
             const symbol = this.getPlayerSymbol(this.player1Socket.id);
-            console.log(`emit obtained: Player 1 ${symbol} `);
             this.game.makeMove(x, y, symbol);
             this.broadcastGameState();
 
@@ -57,19 +62,17 @@ export class GameManager {
 
         // ===== { PLAYER 2 SOCKETS} =====
         this.player2Socket.on('player_ready', () => {
-            this.handlePlayerReady(this.player2Socket.id);
+            this.handlePlayersReady(this.player2Socket.id);
         });
 
         this.player2Socket.on('make_move', (data) => {
-
-
             const { x, y } = data;
             const symbol = this.getPlayerSymbol(this.player2Socket.id);
-            console.log(`emit obtained: Player 2 ${symbol} `);
 
             this.game.makeMove(x, y, symbol);
             this.broadcastGameState();
         });
+
     }
 
 
@@ -84,9 +87,22 @@ export class GameManager {
     // ===== {SOCKET EMITS} =====
     public startGame(): void {
         this.broadcastGameState();
-        console.log("Game started");
-
     } 
+
+    public removePlayer(socketId: string) : boolean {
+        this.playerList.delete(socketId);
+
+        if (socketId === this.player1id) {
+          this.player1Socket.removeAllListeners('player_ready');
+          this.player1Socket.removeAllListeners('make_move');
+        } else if (socketId === this.player2id) {
+          this.player2Socket.removeAllListeners('player_ready');
+          this.player2Socket.removeAllListeners('make_move');
+        }
+
+        return this.playerList.size === 0;
+        
+    }
 
 
     // ===== { HELPER FUNCTIONS } =====
@@ -101,15 +117,15 @@ export class GameManager {
         this.player1Socket.emit('game_update', gameState);
         this.player2Socket.emit('game_update', gameState);
 
-        console.log(gameState);
     }
 
-    private handlePlayerReady(playerId: string): void {
+    private handlePlayersReady(playerId: string): void {
         this.playersReady.add(playerId);
 
         if(this.playersReady.size === 2) {
             this.startGame();
         }
     }
+
 
 }
