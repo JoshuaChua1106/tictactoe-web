@@ -146,13 +146,31 @@
     width: 15vw;
 }
 
+.circle.win {
+    animation: winPulse 1s ease-in-out infinite alternate;
+    background-image: url('/assets/game/tictactoe-pieces/winning-circle.png');
+}
+
 .cross {
     background-image: url('/assets/game/tictactoe-pieces/cross.png');
     background-size: contain;
     background-repeat: no-repeat;
     aspect-ratio: 1;
     width: 15vw;
+}
+
+.cross.win {
+    animation: winPulse 1s ease-in-out infinite alternate;
+    background-image: url('/assets/game/tictactoe-pieces/winning-cross.png');
 
 }
 
+@keyframes winPulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.10);
+    }
+  }
 

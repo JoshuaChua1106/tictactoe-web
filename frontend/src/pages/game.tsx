@@ -15,6 +15,7 @@ function GamePage() {
     const [gameInitialized, setGameInitialized] = useState(false);
     const [winningLine, setWinningLine] = useState<[number, number][] | null>(null);
 
+    const opponentSymbol = yourSymbol === 'O' ? 'X' : 'O';
 
     const makeMove = (x : number, y : number) => {
         if (board[x][y] !== null || gameOver !== null) return;
@@ -64,11 +65,11 @@ function GamePage() {
         </div>
 
         <div className="game-area">
-            {/* Enemy Screen Div */}
+            {/* Player Screen Div */}
             <div className="player-status">
                 <h1>Player</h1>
                 <p>You are:</p>
-                 <div className={yourSymbol === 'O' ? 'circle' : 'cross'}>
+                 <div className={`${yourSymbol === 'O' ? 'circle' : 'cross'} ${gameOver === yourSymbol ? 'win' : ''}`}>
                 </div>
 
             </div>
@@ -117,10 +118,12 @@ function GamePage() {
             <div className="player-status">
                 <h1>Opponent</h1>
                 <p>The opponent is:</p>
-                <div className={yourSymbol === 'O' ? 'cross' : 'circle'}>
+                <div className={`${yourSymbol === 'O' ? 'cross' : 'circle'} ${gameOver === opponentSymbol ? 'win' : ''}`}>
                 </div>
 
             </div>
+
+            
 
         </div>
     </div>
