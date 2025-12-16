@@ -43,12 +43,30 @@ export class LobbyManager {
             const playerId = socket.id;
 
             const game = this.gameList.get(gameId);
+
+            // Validate data structure
+            if (!data || typeof data !== 'object' || !data.gameId) {
+                socket.emit('error', { message: 'Invalid leave_game data' });
+                return;
+            };
+
+            // Validate gameId type
+            if (typeof gameId !== "string") {
+                socket.emit('error', { message: 'gameId must be a string' });
+                return;
+            }
+            
+
+
             if (game) {
                 const shouldDelete = game.removePlayer(playerId);
                 if (shouldDelete) {
                     this.gameList.delete(gameId);
                 } 
-            }
+            } else {
+                socket.emit('error', { message: 'Game not found' });
+                return;
+            };
 
 
         });
