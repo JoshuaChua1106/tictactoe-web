@@ -3,7 +3,7 @@ set -e
 
 # Configuration
 KEY="~/.ssh/tictactoe-ec2-key"
-IP="54.206.91.34"
+IP="16.176.229.51"
 USER="ec2-user"
 REMOTE_DIR="/home/ec2-user/tictactoe-web"
 
