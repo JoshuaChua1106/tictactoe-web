@@ -92,6 +92,7 @@ export class GameManager {
 
             if (!data || typeof data !== 'object') {
                 this.player2Socket.emit('error', {message: "Invalid data format"});
+                return;
             }
 
             const { x, y } = data;
@@ -172,7 +173,7 @@ export class GameManager {
             return true;
         }
 
-        this. lastMoveTime.set(playerId, now);
+        this.lastMoveTime.set(playerId, now);
         return false;
     }
 
