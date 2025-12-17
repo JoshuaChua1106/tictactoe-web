@@ -56,6 +56,14 @@ resource "aws_security_group" "tictactoe_sg" {
 }
 
 ############################
+# SSH Key
+############################
+resource "aws_key_pair" "tictactoe_key" {
+    key_name   = "tictactoe-key"
+    public_key = file("~/.ssh/tictactoe-ec2-key.pub")
+  }
+
+############################
 # EC2 Instance
 ############################
 resource "aws_instance" "tictactoe_ec2" {
@@ -72,6 +80,8 @@ resource "aws_instance" "tictactoe_ec2" {
   tags = {
     Name = "tictactoe-ec2"
   }
+
+  key_name = aws_key_pair.tictactoe_key.key_name
 }
 
 ############################
