@@ -84,7 +84,7 @@ export class GameManager {
         });
 
         this.player2Socket.on('make_move', (data) => {
-            if (this.isRateLimited(this.player1Socket.id)) {
+            if (this.isRateLimited(this.player2Socket.id)) {
                 this.player1Socket.emit('error', { message: 'Too fast! Slow down.' });
                 return;
             }
