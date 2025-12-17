@@ -24,7 +24,10 @@ io.on('connection', (socket) => {
 
 // ===== { Setting up the backend server } =====
 httpServer.listen(PORT, () => {
-
-    console.log(`Server running on http://localhost:${PORT}`);
-
+    const env = process.env.NODE_ENV || 'development';
+    if (env === 'production') {
+        console.log(`Server running in production on port ${PORT}`);
+    } else {
+        console.log(`Server running in development on http://localhost:${PORT}`);
+    }
 })
