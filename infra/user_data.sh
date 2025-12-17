@@ -24,7 +24,7 @@ chmod +x /usr/local/bin/docker-compose
 mkdir -p /usr/local/lib/docker/cli-plugins
 
 curl -L https://github.com/docker/buildx/releases/download/v0.19.3/buildx-v0.19.3.linux-amd64 \
-  -o /usr/local/lib/docker/cli-plugins
+  -o /usr/local/lib/docker/cli-plugins/docker-buildx
 
 chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 
