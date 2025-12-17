@@ -23,8 +23,8 @@ chmod +x /usr/local/bin/docker-compose
 # Download Buildx binary (Hardcoded for x86_64 which matches standard EC2 instances)
 mkdir -p /usr/local/lib/docker/cli-plugins
 
-curl -L "https://github.com/docker/buildx/releases/latest/download/buildx-v0.19.3.linux-amd64" \
-  -o /usr/local/lib/docker/cli-plugins/docker-buildx
+curl -L https://github.com/docker/buildx/releases/download/v0.19.3/buildx-v0.19.3.linux-amd64 \
+  -o /usr/local/lib/docker/cli-plugins
 
 chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 
