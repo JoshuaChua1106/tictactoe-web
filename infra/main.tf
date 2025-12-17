@@ -63,6 +63,7 @@ resource "aws_key_pair" "tictactoe_key" {
     public_key = file("~/.ssh/tictactoe-ec2-key.pub")
   }
 
+
 ############################
 # EC2 Instance
 ############################
@@ -93,4 +94,9 @@ output "public_ip" {
 
 output "ssh_command" {
   value = "ssh ec2-user@${aws_instance.tictactoe_ec2.public_ip}"
+}
+
+output "app_url" {
+  description = "URL for the TicTacToe frontend"
+  value       = "http://${aws_instance.tictactoe_ec2.public_ip}"
 }
