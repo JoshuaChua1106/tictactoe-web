@@ -85,7 +85,7 @@ export class GameManager {
 
         this.player2Socket.on('make_move', (data) => {
             if (this.isRateLimited(this.player2Socket.id)) {
-                this.player1Socket.emit('error', { message: 'Too fast! Slow down.' });
+                this.player2Socket.emit('error', { message: 'Too fast! Slow down.' });
                 return;
             }
 
@@ -99,6 +99,7 @@ export class GameManager {
 
             if (typeof x !== 'number' || typeof y !== 'number') {
                 this.player2Socket.emit('error', {message: "Coordinates must be numbers"});
+                return;
             }
 
             if (x < 0 || x > 2 || y < 0 || y > 2) {
