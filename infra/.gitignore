@@ -2,3 +2,6 @@
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+
+terraform.tfstate
+project.tar.gz
