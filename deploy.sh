@@ -22,12 +22,12 @@ rsync -avz -e "ssh -i $KEY" \
     ./ $USER@$IP:$REMOTE_DIR/
 
 echo "Building and starting containers..."
-ssh -i $KEY $USER@$IP << 'EOF'
+ssh -i $KEY $USER@$IP << EOF
     cd /home/ec2-user/tictactoe-web
     docker-compose down || true
     docker-compose up -d --build
     echo "Deployment complete!"
-    echo "App available at: http://54.206.91.34"
+    echo "App available at: http://$IP"
 EOF
 
 echo "Deploy script finished"
