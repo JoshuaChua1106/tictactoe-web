@@ -20,9 +20,18 @@ curl -L "https://github.com/docker/compose/releases/latest/download/docker-compo
 
 chmod +x /usr/local/bin/docker-compose
 
+# Download Buildx binary (Hardcoded for x86_64 which matches standard EC2 instances)
+mkdir -p /usr/local/lib/docker/cli-plugins
+
+curl -L "https://github.com/docker/buildx/releases/latest/download/buildx-v0.19.3.linux-amd64" \
+  -o /usr/local/lib/docker/cli-plugins/docker-buildx
+
+chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
+
 # Verify installs (logged to cloud-init output)
 docker --version
 docker-compose --version
+docker buildx version
 
 # Create app directory (empty for now)
 mkdir -p /home/ec2-user/tictactoe
