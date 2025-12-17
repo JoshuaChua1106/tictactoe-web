@@ -1,0 +1,59 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production build (gets created during Docker build)
+dist/
+build/
+
+# Development files
+.git
+.gitignore
+README.md
+.eslintrc*
+.prettierrc*
+vite.config.ts
+tsconfig.node.json
+
+# Testing
+coverage/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+test/
+tests/
+__tests__/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cache directories
+.cache
+.parcel-cache
+
+# Docker files
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Other
+*.log
+.nyc_output

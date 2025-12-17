@@ -8,7 +8,7 @@ import { LobbyManager } from "./services/LobbyManager.js";
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: FRONT_END_URL || "http://localhost:5173",
+        origin: FRONT_END_URL,
         methods: ["GET", "POST"]
     }
 });
