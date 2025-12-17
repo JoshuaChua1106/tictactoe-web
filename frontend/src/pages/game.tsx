@@ -8,12 +8,12 @@ import './game.css'
 function GamePage() {
     const navigate = useNavigate();
     const location = useLocation();
-    const { gameId, yourSymbol, opponent } = location.state || {};
+    const { gameId, yourSymbol } = location.state || {};
 
     const [board, setBoard] = useState(Array(3).fill(null).map(() => Array(3).fill(null)));
     const [currentTurn, setCurrentTurn] = useState('X');
     const [gameOver, setGameOver] = useState(null);
-    const [gameInitialized, setGameInitialized] = useState(false);
+    const [, setGameInitialized] = useState(false);
     const [winningLine, setWinningLine] = useState<[number, number][] | null>(null);
 
     const opponentSymbol = yourSymbol === 'O' ? 'X' : 'O';
