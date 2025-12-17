@@ -1,0 +1,503 @@
+[33mcommit 37fd1327ced62843bcc311d2b5ef05f75570ac76[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 17:48:06 2025 +1100
+
+    feat (docker): Added docker compose and debugged issue with frontend not connecting to backend due to hard-coded URLs
+
+[33mcommit 53278115427aab99e51cf05d47a26b10d0c3805c[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 17:18:45 2025 +1100
+
+    feat (docker): Updated node version in backend docker to match frontend
+
+[33mcommit 464be43049a3807de69a9ba4672ba8707e2a973f[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 17:18:15 2025 +1100
+
+    feat (docker): Added docker container for frontend (including debugging)
+
+[33mcommit 81f61c26e224f60157469b44342e2b3ba8287597[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 16:39:22 2025 +1100
+
+    feat (docker): Created a docker container for the backend (includes debugging changes)
+
+[33mcommit c9db79ac8022da0d1d540563d24b67de3eeaa6bb[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 15:39:32 2025 +1100
+
+    debug (game): Debugged syntax errors in GameManager
+
+[33mcommit 3cc01676c613bec1d40365fd5e7fadc914becb16[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 15:38:50 2025 +1100
+
+    debug (game): Debugged syntax errors in GameManager
+
+[33mcommit 0a0e0cf43b8c54fc1091f1128c9aff429a3a2b67[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 15:37:51 2025 +1100
+
+    debug (game): debugged rate limiting for player2
+
+[33mcommit 41233c94bb9a6c278123e1e49563d20c96d72b2d[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:40:55 2025 +1100
+
+    feat (game): Added rate limiting to make_move
+
+[33mcommit 31e4bf30210118ae763782b8992e3055ee8cb46b[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:36:23 2025 +1100
+
+    feat (game): Added input validation for the leave_game socket
+
+[33mcommit 9eab90d3d0434deb029d1427cd1c64c815b27b82[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:30:55 2025 +1100
+
+    feat (game): Added input validation for make move socket
+
+[33mcommit 319ae2a09c7b9bb7d085ca304e597dcd2d85914a[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:26:07 2025 +1100
+
+    feat (lobby): Added cleanup logic for when a user disconnects. Ensuring all games are cleaned up if both players leave
+
+[33mcommit ea7737737574d58d71036e936664080baf5cd3c2[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:24:25 2025 +1100
+
+    clean (lobby): Removed unused imports
+
+[33mcommit fc26a7ba6486868f139083d8e1d329c029a2ac1f[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:18:26 2025 +1100
+
+    feat (lobby): Added verification in lobby to ensure useres aren't directly accessing /lobby, causing them to not join the queue. Logic added to kick users back out to / if they are not in the waiting list while accesing /lobby
+
+[33mcommit d530f757fe2ec73e6309420fa145ca51c9adc5e0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:13:44 2025 +1100
+
+    feat (game): Added redirection for users who immediately access /game without going through the lobby. They are redirected back to the main menu
+
+[33mcommit 8ccff32c5e56f3a2be8abcf8c25ef3403a304235[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:07:17 2025 +1100
+
+    feat (game-state): Added cursor pointer to menu buttons when game is finished
+
+[33mcommit f6d45b24c06aa7173896168b7dc6d2c84698e39a[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 17 00:06:49 2025 +1100
+
+    feat (clean-up): Added cleanup and deletion of games when both players disconnect from the game
+
+[33mcommit 59cf27c733df6aef554b680f8cc1be6006baf3b6[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 23:34:01 2025 +1100
+
+    feat (game-state): Added onclick functionality to the play again and main menu button
+
+[33mcommit 0360ddf20bbf110bfb3484f9d2a4c2ee1ef99f6a[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 23:29:08 2025 +1100
+
+    feat (game-state): Added play again and main menu buttons to gameover screen
+
+[33mcommit 729bc561ae034499dda430622bcf082d9361d4d0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 23:12:50 2025 +1100
+
+    feat (game-layout): Added a max-width to the player state symbols and game-layout, so the game doesn't seem overtly huge on big screens
+
+[33mcommit 9ca2727c763c2c2bfbf73906fa9c8c3b27c19f37[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 23:07:33 2025 +1100
+
+    feat (game-state): Added winning animation and black border to the symbols displayed in player status to show the winner
+
+[33mcommit a7655b560e5aa61a4d53571390c37df0526bee20[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 22:44:36 2025 +1100
+
+    feat (game-state): Added functionality to highlight the winning squares, and added css styling
+
+[33mcommit 85a45352fc75d0eccd7d5f6d979b0d36c8c85cb6[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 22:38:36 2025 +1100
+
+    feat (game-state): Added winning line data to the update game state websocket, so that the winning line is sent from the backend to the frontend
+
+[33mcommit 484715856844e7398a185eea1947563c02bfbfe5[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 16 22:35:01 2025 +1100
+
+    clean (board-pieces): made board pieces smaller and centered on each board-square
+
+[33mcommit f240607275a007e5ad2fa395ec45668f8c24e307[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 21:15:18 2025 +1100
+
+    feat (turn-indicator): Added logic to change text of turn indicator depending on whose turn it is
+
+[33mcommit f7ad0643ab394ca0097fd18c5afce7669474469b[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 21:12:07 2025 +1100
+
+    feat (turn-indicator): Added logic to turn indicator arrows
+
+[33mcommit 1c82987cdccd50702e17b0081ded451ebbc8e71c[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 18:26:49 2025 +1100
+
+    debug (game-front): Debugged frontend only showing X caused by the check function reading the same board-square (0,0)
+
+[33mcommit f41a2651a213d40c60a348871dbcaa5de1c9b113[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 18:25:00 2025 +1100
+
+    feat (game): Added make move functionaltiy to the backend
+
+[33mcommit 8600b699fbbfbb0edb6dfe96067547d57e4d92a4[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 18:20:51 2025 +1100
+
+    feat (frontend): Added logic to send a makemove request, also fixed coordinates issue with card-squares showing the wrong symbol in the wrong squares
+
+[33mcommit c35a09943adcd1f49cc3b98e971116e27f94f0f8[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 18:04:08 2025 +1100
+
+    feat (game): Added logic to display O or X when game board updates
+
+[33mcommit 7a0cba540f94c292d7dfa44408622198634b326a[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 13 17:31:13 2025 +1100
+
+    debug (front-end assets): Fixed imports to be from /assets not /public/assets
+
+[33mcommit b97fcdaf86add54f37a79643e0e8d3ef7f9bd9c0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Thu Dec 11 23:27:44 2025 +1100
+
+    feat (game): Added initialization of initial game state when both players join a game room
+
+[33mcommit 9d221abcceec25c4fd5099699100842b7905ef97[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Thu Dec 11 23:04:00 2025 +1100
+
+    feat (game): Added states to frontend, and changing of yourSymbol and opponent symbol depending on their assigned symbol
+
+[33mcommit ca72fe98367dec882b763dec86158b0b3a7825c9[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Thu Dec 11 22:38:00 2025 +1100
+
+    feat (lobby): Added websocket emits so that when the 2 players are in queue, they will be sent to the game page
+
+[33mcommit 6f6ae0edb01ceca465d742268d54b7da7d1fe75d[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:31:32 2025 +1100
+
+    debug (LobbyManager): Added debugging and tracking console logs to LobbyManager
+
+[33mcommit bacfe660d8741b8aef030ad85f1ae86b0c7ba682[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:27:59 2025 +1100
+
+    feat (gitignore): Added frontend .env file to gitignore
+
+[33mcommit 3076a3bb7fe35f6e5173d0eef3a3bf715c84a2f0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:27:27 2025 +1100
+
+    debug (socket): Debugged a failed GET request to backend, due to CORS policy
+
+[33mcommit ebc8216c1047d7b09f79588683a944f564734a7a[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:26:57 2025 +1100
+
+    feat (socket): Added socket logic to connect when accessing frontend, and to join queue when play game button is presed
+
+[33mcommit 0a8af8e6b5f134a6b4969c1089df5b9fa8d341cf[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:26:15 2025 +1100
+
+    init (packages): Added socket.io package to the frontend
+
+[33mcommit 60ee442c3f405c0c57c340a51724ead478ca7839[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:11:56 2025 +1100
+
+    feat (lobby): Instatiated lobby-manager singleton in server.ts
+
+[33mcommit 1b535d408c7a56f5d7bf3dbafa21d15e18ec6df4[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:07:48 2025 +1100
+
+    feat (lobby): Added a placeholder lobby page
+
+[33mcommit a72bda501ad9ce132ea387dd0d479b3344297fca[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:04:56 2025 +1100
+
+    clean (lobby-manager): Cleaned up ordering of functions for better visibility
+
+[33mcommit 81823e6ad08018a0be8986ba9abd0165919f72cc[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 23:02:27 2025 +1100
+
+    feat (game): Updated Lobby Manager to manage the player queue and instantiate games when there are more than 2 players
+
+[33mcommit 158caa6422e071608f8f60b71f926d8e5d94eec9[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 22:28:52 2025 +1100
+
+    init (GameManager): Initialized GameManager class
+
+[33mcommit af58fecc73b78491c91bb64375236f2f890e20c0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 20:57:44 2025 +1100
+
+    feat (test): Added test cases to test TicTacToeGame logic, and added getters to support
+
+[33mcommit 2349757625a65633bbb43f9ce5788f8eb3a87ece[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 20:31:44 2025 +1100
+
+    fix (test): Added global types import
+
+[33mcommit 65e42e316597fc437fe4bb365460d15210f00146[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 20:27:33 2025 +1100
+
+    refactor (test): Pivoted from Jest to Vitest due to incompatibilities between ESM modules and jest
+
+[33mcommit bd3db2dcd52092050069ddb42f234116991f6750[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 20:14:48 2025 +1100
+
+    init (jest): Initialized more missing packages (jest-ts) and updated tsconfig.json and package.json
+
+[33mcommit 2f9591bd12df993be2863e1a5a71f926b702897d[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Wed Dec 10 00:09:09 2025 +1100
+
+    test (tictactoe-game): Added imports to TicTacToe Game test file
+
+[33mcommit 8eb56ea7adef732081137a271b7a5f6af33f0fb6[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 23:54:12 2025 +1100
+
+    init (packages): Added jest.config file and a folder to save tests
+
+[33mcommit 6a00fd3244a0ebb9c6e719d2e31daf00681d37e0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 23:50:25 2025 +1100
+
+    init (packages): added jest and updated package.json to reflect
+
+[33mcommit 025fcf834742b9051570a7120187ce4b0870962b[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 23:47:22 2025 +1100
+
+    clean (tictactoe-game): Cleaned up spacing
+
+[33mcommit f7dc88ee294d9d2602604c75eb83c17f6f145056[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 23:47:08 2025 +1100
+
+    feat (lobby-manager): Initialized shell
+
+[33mcommit f420632e8bbcaebfa08263d228373c94df23e91c[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 23:30:52 2025 +1100
+
+    feat (tictactoe-game): Created the makeMove logic
+
+[33mcommit 6cc82cfa60758e86ee7156f4b366afbf4b8fdd7f[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 19:02:55 2025 +1100
+
+    feat (tictactoe-game): Created a base class with base methods and attributes
+
+[33mcommit 84ab284ac5f037549ede4a08c740829cbe39a158[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 12:12:11 2025 +1100
+
+    init (backend): Added start scripts to package.json
+
+[33mcommit 93cddfa5d365d9a0becc2406fa259896b866fc17[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 12:11:35 2025 +1100
+
+    clean (packages): Updated gitignores to disclude package-lock from commits
+
+[33mcommit ed698bf6e1e4010ff96cc50ff6d953846d5740fd[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 12:09:27 2025 +1100
+
+    clean (packages): Removed node_modules and package-lock from being tracked by git
+
+[33mcommit c57f6b80f2d8feb79ae172f81264a7d708f72318[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 11:58:03 2025 +1100
+
+    update (packages): Updated packages
+
+[33mcommit 59a4d13a947fbd5ab3d41475bcdbad62df49cf54[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 11:57:45 2025 +1100
+
+    init (backend): Added app.ts with basic configuration
+
+[33mcommit 614506ca52608b339e0a64a48244b070b98be763[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 11:57:17 2025 +1100
+
+    init (backend): Added server.ts
+
+[33mcommit c6e742c7ec76cbe5259749db01192a6ea39d390f[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 11:27:47 2025 +1100
+
+    init (backend): Setup index.ts and resolved issues with CommonJS and exports
+
+[33mcommit a266f50dc06d7c31dd012c0178a20e5837d19fce[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 11:18:22 2025 +1100
+
+    feat (init): Completed initialization of tsconfig and packages
+
+[33mcommit 1c3da54e7eeb319e7d145f3398380ce3a73d516b[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 11:05:24 2025 +1100
+
+    feat (init): Initialized gitignore for backend
+
+[33mcommit 660bb261b723f60bcc0cbae0e1dd09d32b7e890d[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Tue Dec 9 00:09:35 2025 +1100
+
+    feat (turn-indicator): Added styling to the turn-indicator and game header bar
+
+[33mcommit a059b5d0dab54cc7b3f3c297b40f8e80383e5a1d[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 23:11:46 2025 +1100
+
+    feat (turn-indicator): Added turn indicator images to the turn-indicator
+
+[33mcommit db97be9234646349a347e468e625afbfc3d75522[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 22:53:32 2025 +1100
+
+    feat (player-screen): Added styling to player screen and removed guideline boxes for formatting
+
+[33mcommit fccfd9de42006c4f8a3850fc3c77809244b9f385[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 19:52:46 2025 +1100
+
+    clean (font): Set favico as the global font
+
+[33mcommit fdca08b3f4ea8491c3af3935ef16c151cae1de59[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 19:51:00 2025 +1100
+
+    feat (player-screen): Replaced placeholders symbolising the piece (cross or circle) the player is playing as with assets
+
+[33mcommit 60c6ed2b39014c8fc137e4d6d76c04dfc414fbca[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 19:41:35 2025 +1100
+
+    clean (app): Removed unused imports
+
+[33mcommit 2ca43114dbe130cd6d9c80d1c5b7450bdcd94370[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 19:36:20 2025 +1100
+
+    feat (game-page): Replaced placeholders for the game-board with the board-square asset
+
+[33mcommit c0c170fb47c9964fa6075374f841bbfe4a84f649[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 19:20:22 2025 +1100
+
+    feat (game-page): Added placeholders for symbols
+
+[33mcommit 02329bbc155cefdf0e641b3eed8e1eb2581b4dc0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Mon Dec 8 19:17:00 2025 +1100
+
+    feat (game-page): Setup simple formatting for the game page
+
+[33mcommit 184cc76c6e4df9ec5f6b4f3c2d47163ad1c50073[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 20:43:34 2025 +1100
+
+    feat (app): Migrated to navigate using react router
+
+[33mcommit f389b5e1ed489e618799e4e79a7a4651a0bec53c[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 20:08:45 2025 +1100
+
+    feat (style): Adjusted styling for button
+
+[33mcommit 18f68a93c687dfc0a20aef0be45b3d7562cc9555[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 19:53:06 2025 +1100
+
+    feat (style): fixed the css styling to be independent for each page by minimising body class's parameters, and having each page control their own
+
+[33mcommit 765b87ee56351d747381d4f2eacb4938e1e03eb0[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 19:37:08 2025 +1100
+
+    feat (game): Added dummy game page, fixed up global css styling, by moving body back to index.css and adding a menu-page class to wrap menu-page styling
+
+[33mcommit 29d222d265cd8413891acc6de2d179b1d7326ee1[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 19:28:20 2025 +1100
+
+    feat (css): Consolidated css styling in index.css
+
+[33mcommit ab6e40cade3ebbcbeb49fe459d446cc935260e2e[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 19:13:36 2025 +1100
+
+    feat (menu): Added navigation to a dummy game screen when play button is clicked
+
+[33mcommit 460e11f40e7dbb96ab185bea492b7a12ef5bf223[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 19:04:48 2025 +1100
+
+    feat (menu): added styling to the play button
+
+[33mcommit 9061f94d977d60b911f25882b63ee57b673c3b5b[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 18:53:53 2025 +1100
+
+    feat (menu): Added title, description and a play button (no navigation) to menu screen with styling
+
+[33mcommit 2abf44d5d2233a3d502fdb5795836c7334c57f54[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 18:37:24 2025 +1100
+
+    feat (menu): Removed default styling and content and created a simple title
+
+[33mcommit 6065fa88ddbcc3b8f614a60339165173af0f7af9[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 17:47:46 2025 +1100
+
+    adjust (config): Adjusted vite config to allow for polling for more relaible hot loading
+
+[33mcommit 766e62fc5c195fc679bd1f2fd7372f5e533ebe9c[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 17:45:00 2025 +1100
+
+    init (menu-page): initialized menu page, and adjusted app.tsx to be a router page
+
+[33mcommit 239fb962ebbe8829f977884d9eacc00d4253d79e[m
+Author: JoshuaChua1106 <19Joshua.Chua@gmail.com>
+Date:   Sat Dec 6 12:58:57 2025 +1100
+
+    init: Initialized frontend and backend

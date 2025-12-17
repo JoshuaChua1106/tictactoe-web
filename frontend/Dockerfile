@@ -10,7 +10,6 @@ RUN npm install
 COPY . .
 
 # Build Typescript to JavaScript using Vite
-ENV VITE_BACKEND_URL=http://localhost:3000
 RUN npm run build
 
 # nginx

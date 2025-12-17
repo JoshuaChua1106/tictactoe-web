@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: ./backend
+    container_name: tictactoe-backend
+    environment:
+      - PORT=3000
+      - FRONT_END_URL=http://localhost
+    expose:
+      - "3000"
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: tictactoe-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

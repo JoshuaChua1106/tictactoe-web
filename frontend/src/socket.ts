@@ -1,6 +1,10 @@
 import io from 'socket.io-client';
 
-export const socket = io(import.meta.env.VITE_BACKEND_URL);
+// In Docker production, connect through nginx proxy at same origin
+// In development, connect directly to backend
+const socketUrl = import.meta.env.MODE === 'production' ? '/' : (import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000');
+
+export const socket = io(socketUrl);
 
 socket.on('connect', () => {
     console.log('Connected to server:', socket.id);
