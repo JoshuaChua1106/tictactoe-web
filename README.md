@@ -2,9 +2,7 @@
 
 A real-time multiplayer TicTacToe game built with React frontend and Node.js backend using Socket.io.
 
-## Local Development
-
-### Prerequisites
+## Prerequisites
 - Node.js (v18+)
 - npm
 
@@ -16,7 +14,7 @@ docker-compose up --build
 ```
 This will start the frontend on port 80 and backend on port 3000.
 
-### Backend Setup
+## Manual Local Backend Setup
 
 1. Navigate to the backend directory:
    ```bash
@@ -34,7 +32,7 @@ This will start the frontend on port 80 and backend on port 3000.
    ```
    Backend will run on port 3000.
 
-### Frontend Setup
+## Manual Local Frontend Setup
 
 1. Navigate to the frontend directory:
    ```bash
@@ -52,7 +50,6 @@ This will start the frontend on port 80 and backend on port 3000.
    ```
    Frontend will run on port 5173.
 
-
 ## Infrastructure
 
 The `infra/` directory contains Terraform configuration for AWS deployment:
@@ -61,7 +58,7 @@ The `infra/` directory contains Terraform configuration for AWS deployment:
 - **Security Groups**: HTTP (port 80) and SSH access
 - **Region**: ap-southeast-2 (Sydney)
 
-### Infrastructure Setup
+### Infrastructure Setup and Deployment
 
 1. **Prerequisites:**
    - AWS CLI configured
