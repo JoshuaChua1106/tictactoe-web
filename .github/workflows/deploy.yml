@@ -64,8 +64,8 @@ jobs:
               "cd tictactoe-web",
               "git fetch origin",
               "git reset --hard origin/master",
-              "docker compose down || true",
-              "docker compose up -d --build",
+              "docker-compose down || true",
+              "docker-compose up -d --build",
               "echo Deployment complete!"
             ]' \
             --query "Command.CommandId" \
