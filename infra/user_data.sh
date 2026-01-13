@@ -4,8 +4,8 @@ set -e
 # Update system
 yum update -y
 
-# Install Docker
-yum install -y docker
+# Install Git and Docker
+yum install -y git docker
 
 # Start Docker and enable on boot
 systemctl start docker
