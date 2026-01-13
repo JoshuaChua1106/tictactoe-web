@@ -64,8 +64,7 @@ resource "aws_iam_role_policy" "github_actions_deploy" {
         Effect = "Allow"
         Action = [
           "ssm:StartSession",
-          "ssm:SendCommand",
-          "ssm:GetCommandInvocation"
+          "ssm:SendCommand"
         ]
         Resource = [
           "arn:aws:ec2:*:*:instance/*",
@@ -76,6 +75,7 @@ resource "aws_iam_role_policy" "github_actions_deploy" {
       {
         Effect = "Allow"
         Action = [
+          "ssm:GetCommandInvocation",
           "ssm:DescribeInstanceInformation",
           "ssm:GetConnectionStatus"
         ]
