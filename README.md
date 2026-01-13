@@ -71,33 +71,26 @@ The `infra/` directory contains Terraform configuration for AWS deployment:
    ```
 
 3. **Configure variables:**
-   Obtain user's IP Address with:
+   Obtain your public IP Address with:
    ```
    curl ifconfig.me
    ```  
    
-   Create `infra/terraform.tfvars`, only allowing ssh_allowed_ip to ssh to EC2 environment:
+   Create `infra/terraform.tfvars`
+   Set ssh_allowed_ip to your public IP (This only allows your IP to SSH to the EC2 environment):
    ```
    ssh_allowed_ip = "YOUR_IP_ADDRESS"
    ```
 
-4. **Deploy:**
+5. **Deploy:**
    ```bash
    cd infra
    terraform init
    terraform plan
    terraform apply
    ```
-
-5. **Configure deploy script**
-   Obtain EC2 IP Address:
-   ```
-   cd infra
-   terraform output public_ip
-   ```
-   In deploy.sh, adjust IP="" variable with EC2 IP Address.
    
-7. **Deploy application:**
+6. **Deploy application:**
    ```bash
    ./deploy.sh
    ```
