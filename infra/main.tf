@@ -65,6 +65,36 @@ resource "aws_key_pair" "tictactoe_key" {
 
 
 ############################
+# IAM Role for EC2 (Systems Manager)
+############################
+resource "aws_iam_role" "ec2_ssm_role" {
+  name = "tictactoe-ec2-ssm-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_ssm_policy" {
+  role       = aws_iam_role.ec2_ssm_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "tictactoe-ec2-profile"
+  role = aws_iam_role.ec2_ssm_role.name
+}
+
+############################
 # EC2 Instance
 ############################
 resource "aws_instance" "tictactoe_ec2" {
@@ -77,6 +107,8 @@ resource "aws_instance" "tictactoe_ec2" {
 
   # One-time machine setup ONLY
   user_data = file("${path.module}/user_data.sh")
+
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
   tags = {
     Name = "tictactoe-ec2"
@@ -99,4 +131,9 @@ output "ssh_command" {
 output "app_url" {
   description = "URL for the TicTacToe frontend"
   value       = "http://${aws_instance.tictactoe_ec2.public_ip}"
+}
+
+output "github_actions_role_arn" {
+  description = "IAM Role ARN for GitHub Actions OIDC"
+  value       = aws_iam_role.github_actions.arn
 }
