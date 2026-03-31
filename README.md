@@ -1,3 +1,5 @@
+*Note* Removed from hosting due to cost reasons (AWS)
+
 # TicTacToe Web Application
 
 A real-time multiplayer TicTacToe game built with React frontend and Node.js backend using Socket.io.
